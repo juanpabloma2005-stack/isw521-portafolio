@@ -1,0 +1,261 @@
+-Tabla Autor
+CREATE TABLE autor (
+    id_autor SERIAL PRIMARY KEY,
+    nombre VARCHAR(100) NOT NULL,
+    pais VARCHAR(50),
+    fecha_nacimiento DATE
+);
+
+--Tabla Categoria
+CREATE TABLE categoria (
+    id_categoria SERIAL PRIMARY KEY,
+    nombre VARCHAR(100) NOT NULL UNIQUE
+);
+
+--Tabla Libro
+CREATE TABLE libro (
+    id_libro SERIAL PRIMARY KEY,
+    titulo VARCHAR(200) NOT NULL,
+    anio_publicacion INT,
+    id_categoria INT,
+    FOREIGN KEY (id_categoria) REFERENCES categoria(id_categoria)
+);
+
+--Libro_Autor
+CREATE TABLE libro_autor (
+    id_libro INT,
+    id_autor INT,
+    PRIMARY KEY (id_libro, id_autor),
+    FOREIGN KEY (id_libro) REFERENCES libro(id_libro),
+    FOREIGN KEY (id_autor) REFERENCES autor(id_autor)
+);
+
+--Usuario
+CREATE TABLE usuario (
+    id_usuario SERIAL PRIMARY KEY,
+    nombre VARCHAR(100) NOT NULL,
+    email VARCHAR(100) UNIQUE,
+    telefono VARCHAR(20)
+);
+
+--Prestamo
+CREATE TABLE prestamo (
+    id_prestamo SERIAL PRIMARY KEY,
+    id_usuario INT,
+    fecha_prestamo DATE NOT NULL,
+    fecha_devolucion DATE,
+    FOREIGN KEY (id_usuario) REFERENCES usuario(id_usuario)
+);
+
+--Detalle_Prestamo
+CREATE TABLE detalle_prestamo (
+    id_detalle SERIAL PRIMARY KEY,
+    id_prestamo INT,
+    id_libro INT,
+    cantidad INT CHECK (cantidad > 0),
+    FOREIGN KEY (id_prestamo) REFERENCES prestamo(id_prestamo),
+    FOREIGN KEY (id_libro) REFERENCES libro(id_libro)
+);
+
+--Inserts Categoria
+INSERT INTO categoria (nombre) VALUES 
+('Novela'),
+('Ciencia'),
+('Historia'),
+('Tecnología'),
+('Educación'),
+('Biografía'),
+('Fantasía'),
+('Autoayuda'),
+('Arte y Diseño'),
+('Economía'),
+('Infantil'),
+('Poesía'),
+('Filosofía'),
+('Viajes'),
+('Gastronomía');
+
+--Inserts Autor
+INSERT INTO autor (nombre, pais, fecha_nacimiento) VALUES
+('Gabriel Garcia Marquez','Colombia','1927-03-06'),
+('J.K. Rowling','Reino Unido','1965-07-31'),
+('Stephen Hawking','Reino Unido','1942-01-08'),
+('Yuval Noah Harari','Israel','1976-02-24'),
+('Isaac Asimov','Rusia','1920-01-02'),
+('Paulo Coelho','Brasil','1947-08-24'),
+('Dan Brown','Estados Unidos','1964-06-22'),
+('Jane Austen','Reino Unido','1775-12-16'),
+('George Orwell','Reino Unido','1903-06-25'),
+('Ernest Hemingway','Estados Unidos','1899-07-21'),
+('Isabel Allende', 'Chile', '1942-08-02'),
+('Carl Sagan', 'Estados Unidos', '1934-11-09'),
+('Friedrich Nietzsche', 'Alemania', '1844-10-15'),
+('Agatha Christie', 'Reino Unido', '1890-09-15'),
+('Marie Kondō', 'Japón', '1984-10-09');
+
+--Inserts Libro
+INSERT INTO libro (titulo, anio_publicacion, id_categoria) VALUES
+('Cien años de soledad',1967,1),
+('Harry Potter y la piedra filosofal',1997,1),
+('Breve historia del tiempo',1988,2),
+('Sapiens',2011,3),
+('Fundacion',1951,4),
+('El alquimista',1988,1),
+('El codigo Da Vinci',2003,1),
+('Orgullo y prejuicio',1813,1),
+('1984',1949,1),
+('El viejo y el mar',1952,1),
+('Homo Deus',2015,3),
+('Angeles y demonios',2000,1),
+('Emma',1815,1),
+('Rebelion en la granja',1945,1),
+('La carretera',2006,1);
+
+--Insert Libro_Autor
+INSERT INTO libro_autor (id_libro, id_autor) VALUES
+(1,1),
+(2,2),
+(3,3),
+(4,4),
+(5,5),
+(6,6),
+(7,7),
+(8,8),
+(9,9),
+(10,10),
+(11,4),
+(12,7),
+(13,8),
+(14,9),
+(15,10);
+
+--Insert Usuario
+INSERT INTO usuario (nombre, email, telefono) VALUES
+('Ana Lopez','ana@email.com','88881111'),
+('Luis Ramirez','luis@email.com','88882222'),
+('Maria Perez','maria@email.com','88883333'),
+('Carlos Jimenez','carlos@email.com','88884444'),
+('Laura Sanchez','laura@email.com','88885555'),
+('Jorge Vargas','jorge@email.com','88886666'),
+('Sofia Mora','sofia@email.com','88887777'),
+('Daniel Castro','daniel@email.com','88888888'),
+('Valeria Rojas','valeria@email.com','88889999'),
+('Andres Solis','andres@email.com','88880000'),
+('Monica Herrera','monica@email.com','88881234'),
+('Ricardo Alfaro','ricardo@email.com','88884321'),
+('Elena Delgado','elena@email.com','88885678'),
+('Pablo Guzman','pablo@email.com','88888765'),
+('Beatriz Ortiz','beatriz@email.com','88889012');
+
+--Insert Prestamo
+INSERT INTO prestamo (id_usuario, fecha_prestamo, fecha_devolucion) VALUES
+(1,'2025-01-10','2025-01-20'),
+(2,'2025-01-12','2025-01-22'),
+(3,'2025-01-15','2025-01-25'),
+(4,'2025-02-01','2025-02-10'),
+(5,'2025-02-05','2025-02-15'),
+(6,'2025-02-08','2025-02-18'),
+(7,'2025-02-12','2025-02-20'),
+(8,'2025-03-01','2025-03-10'),
+(9,'2025-03-05','2025-03-15'),
+(10,'2025-03-07','2025-03-17'),
+(11,'2025-03-10','2025-03-20'),
+(12,'2025-03-12','2025-03-22'),
+(13,'2025-03-15','2025-03-25'),
+(14,'2025-03-18','2025-03-28'),
+(15,'2025-03-20','2025-03-30');
+
+--Insert Detalle_Prestamo
+INSERT INTO detalle_prestamo (id_prestamo, id_libro, cantidad) VALUES
+(1,1,1),
+(1,2,1),
+(2,3,1),
+(2,4,1),
+(3,5,1),
+(4,6,1),
+(5,7,1),
+(6,8,1),
+(7,9,1),
+(8,10,1),
+(9,11,1),
+(10,12,1),
+(3,13,1),
+(4,14,1),
+(5,15,1);
+
+--Ver todos los libros
+SELECT * FROM libro;
+--Ver todos los autores
+Select * from autor;
+--Ver libro con su categoria
+SELECT libro.titulo, categoria.nombre
+FROM libro
+JOIN categoria ON libro.id_categoria = categoria.id_categoria;
+--Ver libro con su autor
+SELECT libro.titulo, autor.nombre
+FROM libro
+JOIN libro_autor ON libro.id_libro = libro_autor.id_libro
+JOIN autor ON libro_autor.id_autor = autor.id_autor;
+--Ver Usuarios registrados
+SELECT nombre, email FROM usuario;
+--Ver Prestamos Realizados
+SELECT * FROM prestamo;
+--Ver libros prestados
+SELECT libro.titulo
+FROM detalle_prestamo
+JOIN libro ON detalle_prestamo.id_libro = libro.id_libro;
+--Ver usuario con prestamos
+SELECT usuario.nombre, prestamo.id_prestamo
+FROM usuario
+JOIN prestamo ON usuario.id_usuario = prestamo.id_usuario;
+--Ver Cantidad de libros por categoria
+SELECT categoria.nombre, COUNT(libro.id_libro)
+FROM categoria
+LEFT JOIN libro ON categoria.id_categoria = libro.id_categoria
+GROUP BY categoria.nombre;
+--Ver Libros publicados despues del 2000
+SELECT titulo
+FROM libro
+WHERE anio_publicacion > 2000;
+--Ver Prestamo de un usuario en especifico
+SELECT *
+FROM prestamo
+WHERE id_usuario = 1;
+--Ver Libros ordenados por año
+SELECT titulo, anio_publicacion
+FROM libro
+ORDER BY anio_publicacion;
+--Cantidad de prestamos por usuario
+SELECT usuario.nombre, COUNT(prestamo.id_prestamo)
+FROM usuario
+left JOIN prestamo ON usuario.id_usuario = prestamo.id_usuario
+GROUP BY usuario.nombre;
+--Ver Usuarios que han pedido Libros
+SELECT DISTINCT usuario.nombre
+FROM usuario
+JOIN prestamo ON usuario.id_usuario = prestamo.id_usuario;
+--Ver Libros prestados con fecha
+SELECT libro.titulo, prestamo.fecha_prestamo
+FROM detalle_prestamo
+JOIN libro ON detalle_prestamo.id_libro = libro.id_libro
+JOIN prestamo ON detalle_prestamo.id_prestamo = prestamo.id_prestamo;
+--Ver numero total de libros
+SELECT COUNT(*) FROM libro;
+--Ver numero total de autores
+SELECT COUNT(*) FROM autor;
+--Ver Libros con su autor y categoria
+SELECT libro.titulo, autor.nombre, categoria.nombre
+FROM libro
+JOIN libro_autor ON libro.id_libro = libro_autor.id_libro
+JOIN autor ON libro_autor.id_autor = autor.id_autor
+JOIN categoria ON libro.id_categoria = categoria.id_categoria;
+--Ver usuarios por orden alfabetico
+SELECT nombre
+FROM usuario
+ORDER BY nombre;
+--Ver Libros prestados mas de una vez
+SELECT libro.titulo, COUNT(detalle_prestamo.id_libro)
+FROM detalle_prestamo
+JOIN libro ON detalle_prestamo.id_libro = libro.id_libro
+GROUP BY libro.titulo
+HAVING COUNT(detalle_prestamo.id_libro) > 1;

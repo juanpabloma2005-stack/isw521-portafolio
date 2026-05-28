@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CV - Juan Pablo Murillo Aragón</title>
+    <style>
+        :root {
+            --primary-color: #1a365d;
+            --secondary-color: #2b6cb0;
+            --text-color: #2d3748;
+            --bg-color: #f7fafc;
+            --card-bg: #ffffff;
+            --border-color: #e2e8f0;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            margin: 0;
+            padding: 0;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 40px auto;
+            background: var(--card-bg);
+            padding: 40px;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+            border: 1px solid var(--border-color);
+        }
+
+        header {
+            text-align: center;
+            border-bottom: 2px solid var(--primary-color);
+            padding-bottom: 20px;
+            margin-bottom: 25px;
+        }
+
+        header h1 {
+            color: var(--primary-color);
+            margin: 0 0 10px 0;
+            font-size: 2.2rem;
+            letter-spacing: 0.5px;
+        }
+
+        .contact-info {
+            font-size: 0.95rem;
+            color: #4a5568;
+        }
+
+        .contact-info a {
+            color: var(--secondary-color);
+            text-decoration: none;
+            font-weight: 500;
+        }
+
+        .contact-info a:hover {
+            text-decoration: underline;
+        }
+
+        .divider {
+            margin: 0 8px;
+            color: #cbd5e0;
+        }
+
+        .location {
+            margin-top: 5px;
+            font-style: italic;
+            color: #718096;
+        }
+
+        .profile-summary {
+            font-size: 1.05rem;
+            text-align: justify;
+            margin-bottom: 30px;
+        }
+
+        section {
+            margin-bottom: 30px;
+        }
+
+        h2 {
+            color: var(--primary-color);
+            font-size: 1.4rem;
+            border-bottom: 1px solid var(--border-color);
+            padding-bottom: 5px;
+            margin-bottom: 15px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .entry {
+            margin-bottom: 20px;
+        }
+
+        .entry-title {
+            font-weight: bold;
+            font-size: 1.1rem;
+            color: #1a202c;
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+        }
+
+        .entry-subtitle {
+            font-style: italic;
+            color: var(--secondary-color);
+            margin: 2px 0 8px 0;
+        }
+
+        .date {
+            font-weight: normal;
+            font-size: 0.9rem;
+            color: #718096;
+        }
+
+        ul {
+            margin: 5px 0 0 0;
+            padding-left: 20px;
+        }
+
+        li {
+            margin-bottom: 6px;
+        }
+
+        .skills-list {
+            list-style-type: none;
+            padding: 0;
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+            gap: 10px;
+        }
+
+        .skills-list li {
+            background: var(--bg-color);
+            padding: 10px 15px;
+            border-radius: 6px;
+            border-left: 4px solid var(--secondary-color);
+            margin: 0;
+            font-size: 0.95rem;
+        }
+
+        .skills-list strong {
+            color: var(--primary-color);
+        }
+
+        @media (max-width: 600px) {
+            .container {
+                margin: 10px;
+                padding: 20px;
+            }
+            header h1 {
+                font-size: 1.8rem;
+            }
+            .entry-title {
+                flex-direction: column;
+            }
+            .date {
+                margin-top: 2px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+
+    <header>
+        <h1>Juan Pablo Murillo Aragón</h1>
+        <div class="contact-info">
+            <span>61220000</span>
+            <span class="divider">|</span>
+            <a href="mailto:juanpabloma2005@gmail.com">juanpabloma2005@gmail.com</a>
+            <span class="divider">|</span>
+            <a href="https://github.com/juanpabloma2005-stack" target="_blank">github.com/juanpabloma2005-stack</a>
+            <div class="location">Los Chiles, Alajuela</div>
+        </div>
+    </header>
+
+    <div class="profile-summary">
+        Estudiante de Ingeniería de Software con formación técnica en Turismo y conocimientos en el idioma del inglés. Persona proactiva, organizada, y orientada a la resolución de problemas, con facilidad para el trabajo en equipo y una alta capacidad de adaptación en entornos tecnológicos.
+    </div>
+
+    <section>
+        <h2>Formación Académica</h2>
+        
+        <div class="entry">
+            <div class="entry-title">
+                <span>Ingeniería de Software</span>
+                <span class="date">(2025 - Actualidad)</span>
+            </div>
+            <div class="entry-subtitle">UTN - Universidad Técnica Nacional</div>
+        </div>
+
+        <div class="entry">
+            <div class="entry-title">
+                <span>Certificado de Inglés</span>
+                <span class="date">(2024)</span>
+            </div>
+            <div class="entry-subtitle">INA - Instituto Nacional de Aprendizaje</div>
+        </div>
+
+        <div class="entry">
+            <div class="entry-title">
+                <span>Técnico en Turismo</span>
+                <span class="date">(2021 - 2023)</span>
+            </div>
+            <div class="entry-subtitle">Colegio Técnico Profesional Los Chiles</div>
+        </div>
+    </section>
+
+    <section>
+        <h2>Experiencia</h2>
+        
+        <div class="entry">
+            <div class="entry-title">
+                <span>Práctica Profesional</span>
+                <span class="date">(Octubre - Noviembre 2023)</span>
+            </div>
+            <div class="entry-subtitle">Canopy San Luis</div>
+            <ul>
+                <li>Atención al cliente nacional y extranjero.</li>
+                <li>Comunicación asertiva.</li>
+                <li>Trabajo en equipo.</li>
+            </ul>
+        </div>
+    </section>
+
+    <section>
+        <h2>Proyectos Destacados - Universidad Técnica Nacional</h2>
+        
+        <div class="entry">
+            <ul>
+                <li><strong>Desarrollo de sistemas CRUD y aplicaciones de escritorio:</strong> Diseño e implementación de aplicaciones de escritorio con interfaces gráficas, aplicando operaciones CRUD.</li>
+                <li><strong>Estructura de datos:</strong> Implementación y manipulación de estructuras lineales y no lineales (Listas, pilas, colas y árboles).</li>
+            </ul>
+        </div>
+    </section>
+
+    <section>
+        <h2>Habilidades</h2>
+        <ul class="skills-list">
+            <li><strong>Lenguajes de programación:</strong> Java, JavaScript, C++</li>
+            <li><strong>Manejo de Bases de Datos:</strong> Relacionales y no relacionales (SQL, NoSQL)</li>
+            <li><strong>Control de versiones:</strong> Git / GitHub</li>
+            <li><strong>Responsabilidad y puntualidad</strong></li>
+            <li><strong>Buena comunicación</strong></li>
+        </ul>
+    </section>
+
+</div>
+
+</body>
+</html>

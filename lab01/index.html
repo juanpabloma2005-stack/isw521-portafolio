@@ -1,1 +1,163 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NecroGest VCL | Sistema Integrado de Gestión para Camposantos</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <script src="js/main.js" defer></script>
+</head>
+<body>
 
+    <header>
+        <div class="logo-container">
+            <span class="logo-icon">🪦</span>
+            <h1>NecroGest <span class="badge">VCL</span></h1>
+        </div>
+        <nav aria-label="Menú de navegación principal">
+            <ul>
+                <li><a href="#inicio">Inicio</a></li>
+                <li><a href="#estructuras">Estructuras de Control</a></li>
+                <li><a href="#datos">Carga de Datos</a></li>
+                <li><a href="#contacto">Soporte</a></li>
+            </ul>
+        </nav>
+        <button id="theme-toggle" class="btn-toggle" aria-label="Alternar contraste de color">Modo Oscuro</button>
+    </header>
+
+    <main>
+        <section id="inicio" class="hero">
+            <div class="hero-content">
+                <h2>Optimización y Trazabilidad Funeraria Avanzada</h2>
+                <p>Modernice la administración de cementerios con módulos especializados en flujos de datos lineales. Diseñado para integraciones gubernamentales y control de catastro en tiempo real.</p>
+                <div class="hero-actions">
+                    <a href="#estructuras" class="btn-primary">Ver Módulos Técnicos</a>
+                    <a href="#contacto" class="btn-secondary">Solicitar Demostración</a>
+                </div>
+            </div>
+        </section>
+
+        <section id="estructuras" class="structures-section">
+            <div class="section-header">
+                <h2>Arquitectura del Sistema Funerario</h2>
+                <p>Nuestra plataforma procesa los servicios mediante estructuras de datos optimizadas que garantizan cero pérdidas de registros.</p>
+            </div>
+
+            <div class="grid-container">
+                <article class="card">
+                    <div class="card-icon">📋</div>
+                    <h3>Registro General de Difuntos</h3>
+                    <p class="tech-tag">Estructura: Lista Dinámica Enlazada</p>
+                    <p>Permite el control exhaustivo del padrón de fallecidos recopilando metadatos críticos como identificación única, nombre completo, fechas cronológicas y la ubicación exacta de la sepultura.</p>
+                    <ul>
+                        <li>Búsquedas indexadas por cédula.</li>
+                        <li>Filtros estadísticos históricos y consultas analíticas por año de sepultura.</li>
+                    </ul>
+                </article>
+
+                <article class="card">
+                    <div class="card-icon">📥</div>
+                    <h3>Gestión Vertical de Nichos</h3>
+                    <p class="tech-tag">Estructura: Pila LIFO (Last In, First Out)</p>
+                    <p>Optimiza el almacenamiento de ataúdes mediante un sistema físico-lógico de pilas de profundidad controlada asignando una referencia directa al registro del difunto.</p>
+                    <ul>
+                        <li>Control estricto de la cima del nicho.</li>
+                        <li>Algoritmo avanzado de extracción intermedia mediante pilas de contingencia temporales.</li>
+                    </ul>
+                </article>
+
+                <article class="card">
+                    <div class="card-icon">⏳</div>
+                    <h3>Solicitudes de Exhumación</h3>
+                    <p class="tech-tag">Estructura: Cola FIFO (First In, First Out)</p>
+                    <p>Automatiza el flujo técnico y los trámites legales de exhumación respetando rigurosamente el orden cronológico en que ingresan las solicitudes administrativas.</p>
+                    <ul>
+                        <li>Despacho automatizado del primer solicitante en cola.</li>
+                        <li>Validación estricta del motivo legal y fecha de solicitud.</li>
+                    </ul>
+                </article>
+            </div>
+        </section>
+
+        <section id="datos" class="data-section">
+            <h2>Panel de Simulación de Datos de Campo</h2>
+            <p>Descubra cómo interactúa el sistema con los expedientes iniciales cargados en la base de datos centralizada.</p>
+            
+            <div class="table-container">
+                <table class="data-table">
+                    <thead>
+                        <tr>
+                            <th>identificación</th>
+                            <th>Nombre Completo</th>
+                            <th>Defunción</th>
+                            <th>Ubicación de Fosa</th>
+                            <th>Año</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>504</td>
+                            <td>Pedro Garcia</td>
+                            <td>01/06/2005</td>
+                            <td>A la par del palo de mango</td>
+                            <td><span class="year-badge">2005</span></td>
+                        </tr>
+                        <tr>
+                            <td>506</td>
+                            <td>Miguel Lopez</td>
+                            <td>03/08/2010</td>
+                            <td>A la par del limón</td>
+                            <td><span class="year-badge">2010</span></td>
+                        </tr>
+                        <tr>
+                            <td>511</td>
+                            <td>Bryan Rodrigues</td>
+                            <td>03/07/2024</td>
+                            <td>A la par del limón</td>
+                            <td><span class="year-badge">2024</span></td>
+                        </tr>
+                        <tr>
+                            <td>512</td>
+                            <td>Marilin Robles</td>
+                            <td>05/09/2025</td>
+                            <td>A un costado de la Manzana</td>
+                            <td><span class="year-badge">2025</span></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </section>
+
+        <section id="contacto" class="contact-section">
+            <div class="contact-card">
+                <h2>Solicitar Auditoría Institucional</h2>
+                <p>Implemente NecroGest VCL en su municipalidad. Complete el formulario para coordinar una presentación técnica guiada.</p>
+                
+                <form action="#" method="POST" class="contact-form">
+                    <div class="form-group">
+                        <label for="nombre">Nombre del Gestor / Representante:</label>
+                        <input type="text" id="nombre" name="nombre" required placeholder="Ej. Juan Pérez">
+                    </div>
+                    <div class="form-group">
+                        <label for="email">Correo Electrónico Institucional:</label>
+                        <input type="email" id="email" name="email" required placeholder="ejemplo@municipalidad.go.cr">
+                    </div>
+                    <div class="form-group">
+                        <label for="organizacion">Municipalidad o Entidad:</label>
+                        <input type="text" id="organizacion" name="organizacion" required placeholder="Ej. Municipalidad de San Carlos">
+                    </div>
+                    <button type="submit" class="btn-submit">Enviar Solicitud de Demo</button>
+                </form>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="footer-content">
+            <p>&copy; 2026 NecroGest VCL S.A. Soluciones Tecnológicas de Infraestructura Pública.</p>
+            <p class="footer-subtext">Diseñado bajo lineamientos académicos para la Universidad Técnica Nacional.</p>
+        </div>
+    </footer>
+
+</body>
+</html>

@@ -1,1 +1,437 @@
+/* ==========================================================================
+   1. VARIABLES Y CONFIGURACIÓN GLOBAL (Reset & Accesibilidad)
+   ========================================================================== */
+:root {
+    /* Paleta Institucional / Gubernamental Elegante */
+    --bg-principal: #ffffff;
+    --bg-secundario: #f4f6f9;
+    --texto-principal: #1a202c;
+    --texto-secundario: #4a5568;
+    --primario: #2c3e50; /* Azul oscuro institucional */
+    --primario-hover: #1a252f;
+    --acentuado: #7f8c8d;
+    --borde: #e2e8f0;
+    --blanco: #ffffff;
+    --fuente: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
 
+/* Variables para el Modo Oscuro (Se activarán mediante JS) */
+[data-theme="dark"] {
+    --bg-principal: #121824;
+    --bg-secundario: #1a2333;
+    --texto-principal: #f7fafc;
+    --texto-secundario: #cbd5e0;
+    --primario: #3182ce; /* Azul más brillante para contraste */
+    --primario-hover: #63b3ed;
+    --borde: #2d3748;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+    font-family: var(--fuente);
+    color: var(--texto-principal);
+    background-color: var(--bg-principal);
+    line-height: 1.6;
+}
+
+/* ==========================================================================
+   2. HEADER & NAVEGACIÓN (Implementación obligatoria de Flexbox)
+   ========================================================================== */
+header {
+    background-color: var(--bg-secundario);
+    border-bottom: 1px solid var(--borde);
+    padding: 1rem 5%;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    
+    /* Flexbox Alineación Lineal */
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo-container {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.logo-container h1 {
+    font-size: 1.4rem;
+    color: var(--primario);
+}
+
+.badge {
+    font-size: 0.8rem;
+    background-color: var(--primario);
+    color: var(--blanco);
+    padding: 0.2rem 0.5rem;
+    border-radius: 4px;
+    vertical-align: middle;
+}
+
+nav ul {
+    display: flex;
+    list-style: none;
+    gap: 2rem;
+}
+
+nav a {
+    text-decoration: none;
+    color: var(--texto-secundario);
+    font-weight: 500;
+    transition: color 0.3s ease;
+}
+
+nav a:hover {
+    color: var(--primario);
+}
+
+.btn-toggle {
+    background-color: var(--primario);
+    color: var(--blanco);
+    border: none;
+    padding: 0.5rem 1rem;
+    border-radius: 5px;
+    cursor: pointer;
+    font-weight: 600;
+    transition: background-color 0.3s;
+}
+
+.btn-toggle:hover {
+    background-color: var(--primario-hover);
+}
+
+/* ==========================================================================
+   3. SECCIÓN HERO (Presentación Principal)
+   ========================================================================== */
+.hero {
+    padding: 6rem 5%;
+    text-align: center;
+    background: linear-gradient(135deg, var(--bg-secundario) 0%, var(--bg-principal) 100%);
+}
+
+.hero h2 {
+    font-size: 2.5rem;
+    color: var(--primario);
+    margin-bottom: 1.5rem;
+    max-width: 800px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.hero p {
+    font-size: 1.2rem;
+    color: var(--texto-secundario);
+    max-width: 600px;
+    margin: 0 auto 2.5rem auto;
+}
+
+.hero-actions {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+}
+
+.btn-primary, .btn-secondary {
+    text-decoration: none;
+    padding: 0.8rem 1.8rem;
+    border-radius: 5px;
+    font-weight: 600;
+    transition: all 0.3s ease;
+}
+
+.btn-primary {
+    background-color: var(--primario);
+    color: var(--blanco);
+}
+
+.btn-primary:hover {
+    background-color: var(--primario-hover);
+}
+
+.btn-secondary {
+    background-color: transparent;
+    color: var(--primario);
+    border: 2px solid var(--primario);
+}
+
+.btn-secondary:hover {
+    background-color: var(--primario);
+    color: var(--blanco);
+}
+
+/* ==========================================================================
+   4. SECCIÓN CARACTERÍSTICAS (Implementación obligatoria de CSS Grid)
+   ========================================================================== */
+.structures-section {
+    padding: 5rem 5%;
+    background-color: var(--bg-secundario);
+}
+
+.section-header {
+    text-align: center;
+    margin-bottom: 3.5rem;
+}
+
+.section-header h2 {
+    font-size: 2rem;
+    color: var(--primario);
+    margin-bottom: 1rem;
+}
+
+/* Cuadrícula Bidimensional con CSS Grid */
+.grid-container {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr); /* 3 columnas iguales en escritorio */
+    gap: 2rem;
+}
+
+.card {
+    background-color: var(--bg-principal);
+    border: 1px solid var(--borde);
+    border-radius: 8px;
+    padding: 2.5rem 2rem;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(0,0,0,0.05);
+}
+
+.card-icon {
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+}
+
+.card h3 {
+    font-size: 1.3rem;
+    margin-bottom: 0.5rem;
+    color: var(--primario);
+}
+
+.tech-tag {
+    display: inline-block;
+    font-size: 0.75rem;
+    background-color: var(--bg-secundario);
+    color: var(--texto-secundario);
+    padding: 0.2rem 0.6rem;
+    border-radius: 5px;
+    font-weight: 600;
+    border: 1px solid var(--borde);
+    margin-bottom: 1rem;
+}
+
+.card p {
+    color: var(--texto-secundario);
+    font-size: 0.95rem;
+    margin-bottom: 1.5rem;
+}
+
+.card ul {
+    padding-left: 1.2rem;
+    color: var(--texto-secundario);
+    font-size: 0.9rem;
+}
+
+.card li {
+    margin-bottom: 0.5rem;
+}
+
+/* ==========================================================================
+   5. SECCIÓN TABLA DE DATOS
+   ========================================================================== */
+.data-section {
+    padding: 5rem 5%;
+    text-align: center;
+}
+
+.data-section h2 {
+    font-size: 2rem;
+    margin-bottom: 1rem;
+}
+
+.data-section p {
+    color: var(--texto-secundario);
+    margin-bottom: 3rem;
+}
+
+.table-container {
+    overflow-x: auto; /* Permite scroll horizontal en celulares para no romper el layout */
+    max-width: 900px;
+    margin: 0 auto;
+    border: 1px solid var(--borde);
+    border-radius: 8px;
+}
+
+.data-table {
+    width: 100%;
+    border-collapse: collapse;
+    text-align: left;
+    background-color: var(--bg-principal);
+}
+
+.data-table th, .data-table td {
+    padding: 1rem 1.5rem;
+    border-bottom: 1px solid var(--borde);
+}
+
+.data-table th {
+    background-color: var(--bg-secundario);
+    color: var(--primario);
+    font-weight: 600;
+}
+
+.year-badge {
+    background-color: #e2e8f0;
+    color: #4a5568;
+    padding: 0.2rem 0.5rem;
+    border-radius: 4px;
+    font-size: 0.85rem;
+    font-weight: 600;
+}
+
+/* ==========================================================================
+   6. SECCIÓN FORMULARIO DE CONTACTO
+   ========================================================================== */
+.contact-section {
+    padding: 5rem 5%;
+    background-color: var(--bg-secundario);
+}
+
+.contact-card {
+    max-width: 600px;
+    margin: 0 auto;
+    background-color: var(--bg-principal);
+    border: 1px solid var(--borde);
+    border-radius: 8px;
+    padding: 3rem;
+}
+
+.contact-card h2 {
+    margin-bottom: 1rem;
+    color: var(--primario);
+}
+
+.contact-card p {
+    color: var(--texto-secundario);
+    margin-bottom: 2rem;
+}
+
+.form-group {
+    margin-bottom: 1.5rem;
+    text-align: left;
+}
+
+.form-group label {
+    display: block;
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+    font-size: 0.9rem;
+}
+
+.form-group input {
+    width: 100%;
+    padding: 0.8rem;
+    border: 1px solid var(--borde);
+    border-radius: 5px;
+    background-color: var(--bg-principal);
+    color: var(--texto-principal);
+    font-size: 1rem;
+    transition: border-color 0.3s;
+}
+
+.form-group input:focus {
+    outline: none;
+    border-color: var(--primario);
+}
+
+.btn-submit {
+    width: 100%;
+    background-color: var(--primario);
+    color: var(--blanco);
+    border: none;
+    padding: 1rem;
+    border-radius: 5px;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.btn-submit:hover {
+    background-color: var(--primario-hover);
+}
+
+/* ==========================================================================
+   7. FOOTER
+   ========================================================================== */
+footer {
+    background-color: var(--primario);
+    color: #e2e8f0;
+    padding: 3rem 5%;
+    text-align: center;
+}
+
+.footer-subtext {
+    font-size: 0.85rem;
+    color: #a0aec0;
+    margin-top: 0.5rem;
+}
+
+/* ==========================================================================
+   8. DISEÑO RESPONSIVO (2 Breakpoints Obligatorios con @media)
+   ========================================================================== */
+
+/* Breakpoint 1: Tablets e Ipads (Pantallas menores a 992px) */
+@media (max-width: 992px) {
+    .grid-container {
+        grid-template-columns: repeat(2, 1fr); /* Pasa de 3 a 2 columnas */
+    }
+    
+    .hero h2 {
+        font-size: 2.1rem;
+    }
+}
+
+/* Breakpoint 2: Celulares (Pantallas menores a 768px) */
+@media (max-width: 768px) {
+    header {
+        flex-direction: column; /* Apila logo, menú y botón verticalmente */
+        gap: 1rem;
+        text-align: center;
+    }
+
+    nav ul {
+        gap: 1.2rem;
+    }
+
+    .grid-container {
+        grid-template-columns: 1fr; /* Todo pasa a una sola columna */
+    }
+
+    .hero {
+        padding: 4rem 5%;
+    }
+
+    .hero h2 {
+        font-size: 1.8rem;
+    }
+
+    .hero-actions {
+        flex-direction: column;
+        gap: 0.8rem;
+    }
+
+    .contact-card {
+        padding: 2rem 1.5rem;
+    }
+}

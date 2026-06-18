@@ -58,7 +58,6 @@ header {
     top: 0;
     z-index: 1000;
     
-    /* Flexbox apilado verticalmente en móvil */
     display: flex;
     flex-direction: column;
     gap: 1.2rem;
@@ -88,7 +87,7 @@ header {
 
 nav ul {
     display: flex;
-    flex-direction: row; /* Menú en lista vertical para celular */
+    flex-direction: row; 
     list-style: none;
     gap: 0.8rem;
 }
@@ -144,7 +143,7 @@ nav a:hover {
 
 .hero-actions {
     display: flex;
-    flex-direction: column; /* Botones uno abajo del otro en móvil */
+    flex-direction: column; 
     gap: 0.8rem;
 }
 
@@ -463,4 +462,4 @@ footer {
     .section-header h2, .data-section h2 {
         font-size: 2rem;
     }
-}
+}           
